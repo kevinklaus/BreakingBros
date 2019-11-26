@@ -13,16 +13,7 @@ function LandingPage() {
                 <RouteButton color="primary" variant="outlined" text="Read article" route="/dummy" color="inherit"/>
             </div>
         </div> 
-        <Grid container justify="center">
-            <Grid item xs={8}>
-                HI
-            </Grid>
-        </Grid>
-        <Grid container justify="center">
-            <Grid item xs={8}>
-                HI
-            </Grid>
-        </Grid>
+    
     </div>
   );
 }
