@@ -1,29 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-
+import {BrowserRouter, Route} from 'react-router-dom';
 import Navigation from './components/Navigation.js';
+import DummyPage from './components/DummyPage';
+import LandingPage from './components/LandingPage';
+import { ThemeProvider } from '@material-ui/core/styles';
+import orange from '@material-ui/core/colors/orange';
+import deepOrange from '@material-ui/core/colors/deepOrange';
+import { createMuiTheme } from '@material-ui/core/styles';
 
+
+const theme = createMuiTheme({
+  palette: {
+    primary: deepOrange,
+    secondary: orange,
+  },
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Navigation></Navigation>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React today!
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <BrowserRouter>
+        <div className="App">
+          <Navigation></Navigation>
+          <Route exact path='/' component={LandingPage}/>
+          <Route path='/dummy' component={DummyPage}/>
+        </div>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 
